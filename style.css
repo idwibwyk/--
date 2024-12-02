@@ -1,0 +1,374 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-Regular.woff2') format('woff2'),
+         url('fonts/Inter-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-Bold.woff2') format('woff2'),
+         url('fonts/Inter-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #023721; 
+    color: white;
+}
+
+header {
+    background-color: #023721;
+    padding: 30px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: white;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    position: absolute;
+    width: 669px;
+    height: 180px;
+    left: calc(50% - 669px/2 - 0.5px);
+    top: calc(50% - 180px/2 - 300px);
+    font-family: Gill Sans, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 144px;
+    text-align: center;
+    color: #FFFFFF;
+    text-indent: 25px;
+
+
+}
+
+h2 {
+position: absolute;
+width: 750px;
+height: 110px;
+left: calc(50% - 750px/2);
+top: calc(50% - 108px/2 - 240px);
+font-family: 'Hanuman';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 70px;
+text-align: center;
+letter-spacing: 0.04em;
+color: #FFFFFF;
+text-indent: 0px;
+
+
+}
+
+
+.logo {
+position: relative;
+    width: 83px;
+    height: 85px;
+    left: 730px;
+    top: 105px;
+    margin-top: 46px;
+}
+
+
+.logo2 {
+    position: relative;
+        width: 83px;
+        height: 85px;
+        left: 550px;
+        top: px;
+        margin-top: -7px;
+    }
+
+
+
+
+nav
+{
+position: absolute;
+width: 100%;
+height: 92px;
+left: 0px;
+top: 120px;
+background: #F9CEDD;
+}
+
+
+
+
+p {
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 2em;
+    
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 20px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #023721;
+
+
+    
+}
+
+.inter-p {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+  }
+
+.logo span {
+  font-size: 3em;
+  color: #F9CEDD; 
+  display: block;
+  margin: 1em auto;
+}
+
+
+
+.menu-icon {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0 10px;
+    margin-top: 28px;
+   text-indent: 2px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 25px;
+   
+    font-family: Gill Sans, sans-serif;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+
+.menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.description {
+    background-color: #fefefe; /* Light pink background */
+    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+    
+    margin-top: 89px;
+    margin-bottom: 0px;
+
+
+}
+
+.gallery {
+    display: flex;
+    justify-content: 
+    
+}
+
+.image-container {
+    width: 250px;
+    margin: 5px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.inter-button {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+  
+  }
+
+  .button: hover {
+    text-decoration: none !important;
+  }
+
+.button {
+    background: #F9CEDD;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    border-radius: 35px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900 !important;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    outline: none !important;
+    margin-left: 297px;
+    text-indent: 5px;
+}
+
+footer {
+    background-color: #023721; 
+    padding: 20px 0;
+    text-align: center;
+    top: -50px;
+    color: #ffffff !important;
+    margin-bottom: 0px;
+    
+}
+
+.footers {
+    background-color: #023721; 
+    padding: 0px 0;
+    text-align: center;
+    top: -500px;
+    color: #ffffff !important;
+    text-indent: 490px;
+
+}
+
+
+@media (max-width: 768px) {
+    .menu {
+        text-align: left;
+    }
+
+    .menu li {
+        display: block;
+        margin: 10px 0;
+    }
+    .menu-icon{
+        display: block;
+    }
+    .menu{
+      display: none;
+    }
+    .menu.active{
+      display: block;
+    }
+}
+
+
+.nav-link {
+   margin-left: 180px;
+   margin-right: -10px;
+
+    font-weight: 900;
+    font-size: 25px;
+    font-family: Gill Sans, sans-serif;
+    color: #FFFFFF !important; /* Принудительное применение белого цвета */
+}
+
+.dropdown-menu {
+    background: #F9CEDD; /* Цвет фона выпадающего меню */
+    border: none; /* Убираем границу */
+    min-width: auto; /* Минимальная ширина меню */
+    width: auto; /* Автоматическая ширина, равная ширине ссылки */
+}
+
+.dropdown-item {
+color: #FFFFFF; /* Цвет текста для элементов выпадающего меню */
+font-weight: bold; /* Жирный шрифт */
+font-size: 20px; /* Размер шрифта 20 пикселей */
+}
+
+
+.dropdown-item:hover {
+    background-color: rgb(255, 255, 255); /* Цвет фона при наведении */
+    color:#023721;
+}
+
+.dropdown-divider {
+    background-color: #FFFFFF; /* Цвет разделителя */
+}
+
+.dropdown-menu {
+width: 380px; /* Фиксированная ширина в пикселях */
+left: 164px;
+}
+
+
+#dropdown-menu2 {
+        width: 261px; /* Ширина второго выпадающего меню */
+    }
+.nav-link {
+    margin-left: 170px;
+    margin-right: -10px;
+ 
+     font-weight: 900;
+     font-size: 25px;
+     font-family: Gill Sans, sans-serif;
+     color: #FFFFFF !important; /* Принудительное применение белого цвета */
+ }
+
+ .nav-link2 {
+    margin-left: 100px;
+    text-decoration: none !important;
+    padding-top: 10px;
+
+     font-weight: 900;
+     font-size: 25px;
+     font-family: Gill Sans, sans-serif;
+     color: #FFFFFF !important; /* Принудительное применение белого цвета */
+ }
+
+ .nav-link2: :hover { text-decoration: none !important;
+ }
+
+.nav-item2{
+    margin-top: 8px;
+ }
+
