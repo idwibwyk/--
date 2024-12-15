@@ -3,90 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom Boom</title>
+    <title>BLOOM BOOM</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        
-            <h1>BLOOM BOOM</h1>
-            <h2>flower designer</h2>
-            <div class="logo">
-              <span><img src="logo.svg" alt="Логотип"></span>
-            </div>
-            
-            <nav class="navbar navbar-expand-lg">
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Информация о цветах
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">База данных цветов</a>
-                                <a class="dropdown-item" href="#">Советы по выбору</a>
-                                <a class="dropdown-item" href="#">Блог</a>
-                                
-                            </div>
-                        </li>
-                        <li class="nav-item2">
-                            <a class="nav-link2" href="#">Конструктор букета</a>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                О нас
-                            </a>
-                            <div class="dropdown-menu" id="dropdown-menu2"  aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Наша команда</a>
-                                <a class="dropdown-item" href="#">Контакты</a>
-                                <a class="dropdown-item" href="#">Отзывы</a>
-                                <a class="dropdown-item" href="#">Форма обратной связи</a>
-                                
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
 
-        </div>
+    <header class="text-center">
+        <a href="index.html">
+            <h1>BLOOM BOOM</h1>
+            <h2 style="letter-spacing: 3px; color: #FFFFFF;">flower designer</h2>
+            <img src="logo.svg" alt="Логотип" class="img-fluid"> 
+        </a>
     </header>
-    <main>
-        <div class="container">
-            <section class="description">
-                <p>Создавайте потрясающие индивидуальные букеты с помощью нашего простого в использовании конструктора цветов. Выбирайте цветы, упаковку оформление, чтобы создать уникальную композицию, выражающую ваши чувства.</p>
-                <section class="gallery">
-                    <div class="image-container">
-                        <img src="images/букет.jpg" alt="Букет 1">
-                    </div>
-                    <div class="image-container">
-                        <img src="images/букет2.jpg" alt="Букет 2">
-                    </div>
-                    <div class="image-container">
-                        <img src="images/букет5.jpeg" alt="Букет 3">
-                    </div>
-                    <div class="image-container">
-                        <img src="images/букет4.jpeg" alt="Букет 4">
-                    </div>
-                </section>
-                <a class="button"  href="constructor.html" >Собрать букет</a>
+
+    <nav class="navbar navbar-expand navbar-light">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Главная <span class="sr-only">(текущая)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="constructor.html">Конструктор букета</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="flower.html">Информация о цветах</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">О нас</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container text-center mt-4">
+        <h2 style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721;">Создайте свой идеальный букет!</h2>
+        <p>Выбирайте цветы, добавляйте декорации, создавайте уникальные букеты и заказывайте доставку прямо сейчас!</p>
+
+        <div class="row mt-5">
+            <div class="col-md-8 text-left">
+                <h3 style="font-weight: 700; font-family: 'Inter', sans-serif;">Каждый букет — это искусство.</h3>
+                <p style="text-align: justify;">Мы предлагаем широкий выбор уникальных букетов для любых мероприятий. Наша команда профессиональных флористов готова создать композиции, которые подчеркнут красоту вашего события. Используя только свежие цветы и оригинальные идеи, мы гарантируем, что каждый букет будет неповторимым.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="images/букет2.jpg" alt="Уникальный букет" class="img-fluid img-zoom" style="margin: 10px; margin-left: 100px;"> <!-- Добавлен класс img-zoom -->
             </div>
         </div>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="logo2">
-                <span><img src="logo.svg" alt="Логотип"></span>
-              </div>
-          <p class="footers">&copy; 2024 Bloom Boom</p>
+
+        <h2 class="mt-5 gallery-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721;">Популярные букеты:</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/букет.jpg" class="card-img-top" alt="Букет 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Букет "Лучи весны"</h5>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">Этот изысканный букет белых роз, оформленный нежной розовой упаковкой, станет идеальным подарком для любого случая. Он символизирует чистоту и любовь.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/букет3.jpeg" class="card-img-top" alt="Букет 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Букет "Нежность"</h5>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">Это изящный букет, который создан с помощью нашего конструктора букета. Он идеально подойдет для выражения чувств нежности и любви.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/букет4.jpg" class="card-img-top" alt="Букет 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Букет "Очарование"</h5>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">Букет "Очарование" наполнен яркими и нежными цветами, которые создают атмосферу радости и тепла.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
+        <div class="create-bouquet mt-4">
+            <h2 class="section-header" class="mt-5 gallery-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721;">Попробуйте наш конструктор прямо сейчас!</h2>
+            <p>Используйте наш конструктор, чтобы создать уникальный букет, который идеально подойдет для любого случая.</p>
+        <a href="constructor.html" id="createBouquetBtn" class="btn btn-primary btn-lg create-button" style="font-family: 'Inter', sans-serif; font-weight: 700;">Создать букет</a>
+    </main>
+
+    <footer class="text-center py-3" style="background-color: #023721; color: #FFFFFF;">
+        <div class="footer-content">
+            <h5>Связаться с нами:</h5>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i> Email: bloomboom@mail.ru
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i> Телефон: +7 (123) 456-78-90
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Адрес: ул. Цветочная, 1, г. Владимир
+            </div>
+        </div>
+        <p>&copy; 2024 BLOOM BOOM. Все права защищены.</p>
+        <a href="index.html">
+            <img src="logo.svg" alt="Маленький логотип" class="footer-logo">
+        </a>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('createBouquetBtn').addEventListener('click', function() {
+            this.classList.toggle('btn-active'); // Переключаем класс при нажатии
+            this.blur(); // Убираем фокус с кнопки
+        });
+    </script>
 </body>
 </html>
