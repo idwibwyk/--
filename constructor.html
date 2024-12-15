@@ -75,6 +75,7 @@
         
         <button class="btn btn-success btn-create" data-toggle="modal" data-target="#bouquetModal" style="margin-bottom: 20px !important;">Создать свой букет</button>
         <button class="btn btn-danger btn-remove" style="margin-left: 10px;">Удалить последний цветок</button>
+        <button class="btn btn-primary btn-save" style="margin-left: 10px; font-weight: bold;">Получить файл с данными о букете</button> <!-- Кнопка для сохранения -->
 
         <!-- Модальное окно -->
         <div class="modal fade" id="bouquetModal" tabindex="-1" role="dialog" aria-labelledby="bouquetModalLabel" aria-hidden="true">
@@ -172,66 +173,65 @@
             return false; // Пересечения нет
         }
     
-    // Обработчик события для кнопки "Создать букет"
-document.querySelector('.btn-create').addEventListener('click', function() {
-    console.log("Кнопка 'Создать букет' нажата"); // Отладочный вывод
-    console.log("Длина addedFlowers:", addedFlowers.length); // Проверка длины массива
+        // Обработчик события для кнопки "Создать букет"
+        document.querySelector('.btn-create').addEventListener('click', function() {
+            console.log("Кнопка 'Создать букет' нажата"); // Отладочный вывод
+            console.log("Длина addedFlowers:", addedFlowers.length); // Проверка длины массива
 
-    // Проверяем, есть ли добавленные цветы
-    if (addedFlowers.length === 0) {
-        // Если цветы не добавлены, открываем модальное окно с уведомлением
-        const flowerCountDiv = document.getElementById('flower-counts');
-        flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
+            // Проверяем, есть ли добавленные цветы
+            if (addedFlowers.length === 0) {
+                // Если цветы не добавлены, открываем модальное окно с уведомлением
+                const flowerCountDiv = document.getElementById('flower-counts');
+                flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
 
-        // Добавляем сообщение о том, что цветы не добавлены
-        const noFlowersMessage = document.createElement('p');
-        noFlowersMessage.textContent = "Нет добавленных цветов!";
-        noFlowersMessage.style.fontWeight = "bold"; // Жирный текст
-        noFlowersMessage.style.color = "red"; // Красный цвет для выделения
-        flowerCountDiv.appendChild(noFlowersMessage);
+                // Добавляем сообщение о том, что цветы не добавлены
+                const noFlowersMessage = document.createElement('p');
+                noFlowersMessage.textContent = "Нет добавленных цветов!";
+                noFlowersMessage.style.fontWeight = "bold"; // Жирный текст
+                noFlowersMessage.style.color = "red"; // Красный цвет для выделения
+                flowerCountDiv.appendChild(noFlowersMessage);
 
-        // Добавляем инструкции по добавлению цветов
-        const instructionsMessage = document.createElement('p');
-        instructionsMessage.textContent = "Пожалуйста, перетащите цветы в вазу, чтобы создать букет.";
-        flowerCountDiv.appendChild(instructionsMessage);
+                // Добавляем инструкции по добавлению цветов
+                const instructionsMessage = document.createElement('p');
+                instructionsMessage.textContent = "Пожалуйста, перетащите цветы в вазу, чтобы создать букет.";
+                flowerCountDiv.appendChild(instructionsMessage);
 
-        // Открываем модальное окно
-        $('#bouquetModal').modal('show');
-        return; // Прекращаем выполнение функции
-    }
+                // Открываем модальное окно
+                $('#bouquetModal').modal('show');
+                return; // Прекращаем выполнение функции
+            }
 
-    // Если цветы добавлены, открываем модальное окно
-    const flowerCountDiv = document.getElementById('flower-counts');
-    flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
+            // Если цветы добавлены, открываем модальное окно
+            const flowerCountDiv = document.getElementById('flower-counts');
+            flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
 
-    // Добавляем поздравительный текст
-    const congratulatoryMessage = document.createElement('p');
-    congratulatoryMessage.textContent = "Поздравляем, Вы создали свой собственный индивидуальный букет!";
-    congratulatoryMessage.style.fontWeight = "bold"; // Жирный текст
-    congratulatoryMessage.style.fontSize = "1.2em"; // Увеличенный размер шрифта
-    flowerCountDiv.appendChild(congratulatoryMessage);
+            // Добавляем поздравительный текст
+            const congratulatoryMessage = document.createElement('p');
+            congratulatoryMessage.textContent = "Поздравляем, Вы создали свой собственный индивидуальный букет!";
+            congratulatoryMessage.style.fontWeight = "bold"; // Жирный текст
+            congratulatoryMessage.style.fontSize = "1.2em"; // Увеличенный размер шрифта
+            flowerCountDiv.appendChild(congratulatoryMessage);
 
-    // Добавляем текст о содержимом букета
-    const bouquetMessage = document.createElement('p');
-    bouquetMessage.textContent = "Ваш букет состоит из:";
-    bouquetMessage.style.fontWeight = "bold"; // Жирный текст
-    flowerCountDiv.appendChild(bouquetMessage);
+            // Добавляем текст о содержимом букета
+            const bouquetMessage = document.createElement('p');
+            bouquetMessage.textContent = "Ваш букет состоит из:";
+            bouquetMessage.style.fontWeight = "bold"; // Жирный текст
+            flowerCountDiv.appendChild(bouquetMessage);
 
-    // Генерируем список цветов и их количества
-    for (const [flowerType, count] of Object.entries(flowerCounts)) {
-        if (count > 0) {
-            const flowerItem = document.createElement('p');
-            const flowerName = getFlowerNameInRussian(flowerType); // Получаем название цветка на русском
-            flowerItem.textContent = `${flowerName}: ${count}`;
-            flowerCountDiv.appendChild(flowerItem);
-        }
-    }
+            // Генерируем список цветов и их количества
+            for (const [flowerType, count] of Object.entries(flowerCounts)) {
+                if (count > 0) {
+                    const flowerItem = document.createElement('p');
+                    const flowerName = getFlowerNameInRussian(flowerType); // Получаем название цветка на русском
+                    flowerItem.textContent = `${flowerName}: ${count}`;
+                    flowerCountDiv.appendChild(flowerItem);
+                }
+            }
 
-    // Открываем модальное окно
-    $('#bouquetModal').modal('show');
-});
+            // Открываем модальное окно
+            $('#bouquetModal').modal('show');
+        });
 
-    
         // Функция для получения названия цветка на русском языке
         function getFlowerNameInRussian(flowerType) {
             const flowerNames = {
@@ -243,7 +243,7 @@ document.querySelector('.btn-create').addEventListener('click', function() {
             };
             return flowerNames[flowerType] || flowerType; // Возвращаем название или сам тип, если не найдено
         }
-    
+
         // Обработчик события для кнопки "Удалить последний цветок"
         document.querySelector('.btn-remove').addEventListener('click', function() {
             if (addedFlowers.length > 0) {
@@ -259,7 +259,7 @@ document.querySelector('.btn-create').addEventListener('click', function() {
                 alert("Нет добавленных цветков для удаления!"); // Предупреждение, если нет цветков
             }
         });
-    
+
         // Функция для обновления модального окна
         function updateModal() {
             const flowerCountDiv = document.getElementById('flower-counts');
@@ -288,6 +288,22 @@ document.querySelector('.btn-create').addEventListener('click', function() {
                 }
             }
         }
+
+        // Обработчик события для кнопки "Сохранить букет в JSON"
+        document.querySelector('.btn-save').addEventListener('click', function() {
+            const jsonData = JSON.stringify(flowerCounts, null, 2); // Преобразуем данные в JSON
+            const blob = new Blob([jsonData], { type: 'application/json' }); // Создаем Blob
+            const url = URL.createObjectURL(blob); // Создаем ссылку для скачивания
+
+            // Создаем временную ссылку для скачивания
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'bouquet.json'; // Имя файла
+            document.body.appendChild(a);
+            a.click(); // Имитируем клик для скачивания
+            document.body.removeChild(a); // Удаляем временную ссылку
+            URL.revokeObjectURL(url); // Освобождаем память
+        });
     </script>
     
 
