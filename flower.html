@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOOM BOOM</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-post {
+            border: 1px solid #ddd; /* Граница для постов блога */
+            border-radius: 10px; /* Скругленные углы */
+            padding: 53px; /* Внутренние отступы */
+            padding-top: 20px;
+            margin-bottom: 20px; /* Отступ снизу */
+            transition: box-shadow 0.3s; /* Плавный переход для тени */
+        }
+
+        .blog-post:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+        }
+
+        /* Стили для карусели */
+        .carousel {
+            background-color: #F9F9F9; /* Светло-серый фон для карусели */
+            border-radius: 10px; /* Скругленные углы */
+            padding: 30px;
+            padding-left: 90px;
+            padding-right: 90px; /* Внутренние отступы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+            display: flex; /* Flexbox для центрирования */
+            justify-content: center; /* Центрирование содержимого */
+            align-items: center; /* Вертикальное центрирование */
+            width: 600px; /* Фиксированная ширина для карусели */
+            height: 500px; /* Фиксированная высота для изображений */
+            margin: 0 auto; /* Центрирование карусели на странице */
+        }
+
+        .carousel-item {
+            text-align: center; /* Центрирование текста под изображением */
+        }
+
+        .carousel-item img {
+            border-radius: 10px; /* Скругленные углы для изображений */
+            height: 400px; /* Фиксированная высота для изображений */
+            width: 400px; /* Фиксированная ширина для изображений */
+            object-fit: cover; /* Обрезка изображения для сохранения пропорций */
+            display: block; /* Блоковое отображение для центрирования */
+            margin: 0 auto; /* Центрирование изображения */
+            cursor: pointer; /* Указатель при наведении */
+        }
+
+        .carousel-caption {
+            display: none; /* Скрываем стандартные подписи карусели */
+        }
+
+        .caption {
+            margin-top: 13px; /* Отступ сверху для текста под изображением */
+            font-size: 16px; /* Размер шрифта для текста */
+            color: #333; /* Цвет текста */
+        }
+
+        /* Стили для текстовых ссылок */
+        .carousel-control-prev-text,
+        .carousel-control-next-text {
+            color: #023721; /* Темно-зеленый цвет текста */
+            font-weight: bold; /* Жирный текст */
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 1.2em; /* Размер шрифта */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev-text {
+            left: 10px; /* Расположение слева */
+        }
+
+        .carousel-control-next-text {
+            right: 10px; /* Расположение справа */
+        }
+
+        .full-text {
+            display: none; /* Скрываем полный текст по умолчанию */
+            margin-top: 10px; /* Отступ сверху для полного текста */
+            text-align: left; /* Выравнивание текста влево */
+        }
+
+        .img-fluid {
+            margin-bottom: -30px !important;
+        }
+
+        .btn-create-bouquet {
+            background-color: #F9CEDD; /* Ярко-розовый фон */
+            color: #023721; /* Белый текст */
+            font-weight: bold; /* Жирный текст */
+            padding: 10px 20px; /* Отступы для кнопки */
+            border: none; /* Убираем стандартную границу */
+            border-radius: 5px; /* Закругленные углы */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
+        }
+
+        .btn-create-bouquet:hover {
+            background-color: #023721; /* Темно-розовый фон при наведении */
+            color: #FFFFFF;
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+
+        .btn-create-bouquet:focus {
+            outline: none; /* Убираем обводку при фокусе */
+            
+        }
+
+        .btn-read-more {
+            background-color: #F9CEDD; /* Светло-розовый фон */
+            color: #023721; /* Темно-зеленый текст */
+            font-weight: bold; /* Жирный текст */
+            transition: background-color 0.3s, color 0.3s; /* Плавный переход */
+            border: none; /* Убираем стандартную границу */
+            padding: 10px 20px; /* Отступы для кнопки */
+            font-size: 1em; /* Размер шрифта */
+            cursor: pointer; /* Указатель при наведении */
+            outline: none; /* Убираем обводку по умолчанию */
+            box-shadow: none; /* Убираем тень по умолчанию */
+        }
+
+        .btn-read-more:hover,
+        .btn-read-more:focus,
+        .btn-read-more:active {
+            background-color: #023721; /* Темно-зеленый фон при наведении */
+            color: #FFFFFF; /* Белый текст при наведении */
+            border: none; /* Убираем стандартную границу */
+            outline: none; /* Убираем обводку при фокусе */
+            box-shadow: none; /* Убираем тень при фокусе */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="text-center">
+        <a href="index.html">
+            <h1>BLOOM BOOM</h1>
+            <h2 style="letter-spacing: 3px; color: #FFFFFF;">flower designer</h2>
+            <img src="logo.svg" alt="Логотип" class="img-fluid"> 
+        </a>
+    </header>
+
+    <nav class="navbar navbar-expand navbar-light">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="constructor.html">Конструктор букета</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="flower.html">Информация о цветах <span class="sr-only">(текущая)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">О нас</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container text-center mt-4">
+        <!-- ГАЛЕРЕЯ -->
+        <section>
+            <h2 class="section-header mt-5" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; text-align: center; margin-top: 40px;">Погрузитесь в цветочный мир!</h2>
+            <p>Для подробной информации необходимо нажать на изображение понравившегося цветка.</p>
+            <div id="flowerCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/розы.jpg" class="d-block w-100" alt="Роза" onclick="showFlowerInfo('Роза', 'Символ любви и страсти. Красные розы - для романтики, белые - для чистоты и невинности.', 'Розы прекрасно сочетаются с лилиями и хризантемами.')">
+                        <div class="caption"><b>Роза</b> - символ любви и страсти.</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/лилии.webp" class="d-block w-100" alt="Лилия" onclick="showFlowerInfo('Лилия', 'Символизируют чистоту и утонченность. Часто используются в свадебных букетах.', 'Лилии хорошо комбинируются с розами и тюльпанами.')">
+                        <div class="caption"><b>Лилия</b> - символ чистоты и утонченности.</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/хризантемы.webp" class="d-block w-100" alt="Хризантема" onclick="showFlowerInfo('Хризантема', 'Символизируют долголетие и счастье. Эти цветы часто дарят на праздники.', 'Хризантемы отлично смотрятся с пионов и тюльпанов.')">
+                        <div class="caption"><b>Хризантема</b> - символ долголетия и счастья.</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/пионы.jpg" class="d-block w-100" alt="Пион" onclick="showFlowerInfo('Пион', 'Символизируют богатство и процветание. Они популярны в свадебных букетах.', 'Пионы хорошо сочетаются с розами и лилиями.')">
+                        <div class="caption"><b>Пион</b> - символ богатства и процветания.</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/тюльпаны.jpg" class="d-block w-100" alt="Тюльпан" onclick="showFlowerInfo('Тюльпан', 'Олицетворяют весну и обновление. Разнообразие цветов позволяет выбрать подходящий для любого случая.', 'Тюльпаны прекрасно сочетаются с нарциссами и гиацинтами.')">
+                        <div class="caption"><b>Тюльпан</b> - символ весны и обновления.</div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#flowerCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-text">Назад</span>
+                </a>
+                <a class="carousel-control-next" href="#flowerCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-text">Далее</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Модальное окно для информации о цветах -->
+        <div class="modal fade" id="flowerModal" tabindex="-1" role="dialog" aria-labelledby="flowerModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="flowerModalLabel">Информация о цветке</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="flowerInfo"></p>
+                        <p id="flowerCombination"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Советы по выбору цветов -->
+<section>
+    <h2 class="section-header mt-5" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; text-align: center; margin-top: 40px;">Советы по выбору цветов:</h2>
+    <p style="text-align: left; line-height: 1.6;">При выборе цветов для букета или подарка стоит учитывать несколько факторов:</p>
+    <div style="border-top: 2px solid #F9CEDD; margin: 20px 0;"></div>
+    <ul style="list-style-type: none; padding-left: 0; text-align: left;">
+        <li style="margin: 15px 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px; transition: background-color 0.3s;">
+            <strong>1. Учитывайте предпочтения получателя:</strong> Какие цветы ему нравятся?
+        </li>
+        <li style="margin: 15px 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px; transition: background-color 0.3s;">
+            <strong>2. Подумайте о событии:</strong> Для свадьбы подойдут нежные пастельные тона, а для дня рождения - яркие и насыщенные цвета.
+        </li>
+        <li style="margin: 15px 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px; transition: background-color 0.3s;">
+            <strong>3. Обратите внимание на сезонность:</strong> Выбирайте цветы, которые доступны в данный момент, чтобы они были свежими.
+        </li>
+        <li style="margin: 15px 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px; transition: background-color 0.3s;">
+            <strong>4. Не забывайте о значении цветов:</strong> Каждый цветок и цвет могут иметь свое значение.
+        </li>
+    </ul>
+    <div style="border-bottom: 2px solid #F9CEDD; margin: 20px 0;"></div>
+</section>
+
+        <!-- Блог -->
+<section>
+    <h2 class="section-header mt-5" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; text-align: center; margin-top: 40px;">Интересные статьи</h2>
+    
+    <div class="blog-post">
+        <h5 style="font-weight: bold; text-align: left;">Как выбрать идеальный букет для свадьбы?</h5>
+        <img src="images/свадьба.jpg" alt="Букет для свадьбы" style="width: 100px; float: left; margin-right: 15px;">
+        <p style="text-align: justify;">Свадьба - это особенное событие, и выбор букета играет важную роль. В этом посте мы расскажем, как выбрать идеальный букет для вашего важного дня.</p>
+        <button class="btn btn-read-more float-right" style="margin: 15px; margin-top: 0px;" onclick="toggleText('post1', this)"><b>Читать далее</b></button>
+        <div class="full-text" id="post1" style="display: none;">
+            <p style="text-align: justify;">Выбор букета для свадьбы зависит от стиля вашей свадьбы, сезона и ваших предпочтений. Нежные пастельные тона хорошо подойдут для романтической свадьбы, в то время как яркие цвета могут добавить веселья в ваше торжество. Не забывайте учитывать цветовую гамму вашего свадебного платья и декора.</p>
+        </div>
+    </div>
+    
+
+    <div class="blog-post">
+        <h5 style="font-weight: bold; text-align: left;">Чем можно дополнить и украсить букет цветов?</h5>
+        <img src="images/значение.jpg" alt="Дополнения к букету" style="width: 100px; float: left; margin-right: 15px;">
+        <p style="text-align: justify;">Дополнение букета различными элементами может сделать его более уникальным и привлекательным. Вот несколько идей, как украсить ваш букет:</p>
+        <button class="btn btn-read-more float-right" style="margin: 15px; margin-top: 0px;" onclick="toggleText('post2', this)"><b>Читать далее</b></button>
+        <div class="full-text" id="post2">
+            <p style="text-align: justify;">Вы можете добавить зелень, чтобы сделать букет более объемным. Используйте различные текстуры, такие как сухие цветы или декоративные элементы, чтобы создать интересный контраст. Также можно использовать ленты, чтобы связать стебли, или добавить маленькие подарки, такие как открытки или украшения, чтобы сделать букет более персонализированным.</p>
+        </div>
+    </div>
+
+    <div class="blog-post">
+        <h5 style="font-weight: bold; text-align: left;">Как ухаживать за цветами, чтобы они дольше радовали вас?</h5>
+        <img src="images/ваза.jpg" alt="Уход за цветами" style="width: 100px; float: left; margin-right: 15px;">
+        <p style="text-align: justify;">Уход за цветами - важный аспект, чтобы они долго оставались свежими. Мы поделимся с вами несколькими полезными советами.</p>
+        <button class="btn btn-read-more float-right" style="margin: 15px; margin-top: 0px;" onclick="toggleText('post3', this)"><b>Читать далее</b></button>
+        <div class="full-text" id="post3">
+            <p style="text-align: justify;">Чтобы цветы дольше радовали вас, меняйте воду в вазе каждые два дня, подрезайте стебли под углом и убирайте листья, которые могут находиться в воде. Также стоит избегать прямых солнечных лучей и холодных сквозняков.</p>
+        </div>
+    </div>
+
+    <!-- Новый текст и кнопка "Создать букет" -->
+    <div class="create-bouquet mt-4">
+        <h2 class="section-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; margin-top: 70px !important;">Создайте свой идеальный букет!</h2>
+        <p>Используйте наш конструктор, чтобы создать уникальный букет, который идеально подойдет для любого случая.</p>
+        <a href="constructor.html" class="btn btn-primary btn-create-bouquet" style="font-family: 'Inter', sans-serif; font-weight: 700; padding: 10px 20px; text-align: center; display: inline-block; margin: 15px 0;"><b>Создать букет</b></a>
+
+
+        <div class="mt-4"></div> <!-- Отступ после кнопки -->
+    </div>
+</section>
+    </main>
+    <footer class="text-center py-3" style="background-color: #023721; color: #FFFFFF;">
+        <div class="footer-content">
+            <h5>Связаться с нами:</h5>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i> Email: bloomboom@mail.ru
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i> Телефон: +7 (123) 456-78-90
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Адрес: ул. Цветочная, 1, г. Владимир
+            </div>
+        </div>
+        <p>&copy; 2024 BLOOM BOOM. Все права защищены.</p>
+        <a href="index.html">
+            <img src="logo.svg" alt="Маленький логотип" class="footer-logo">
+        </a>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showFlowerInfo(name, description) {
+            document.getElementById('flowerModalLabel').innerText = name;
+            document.getElementById('flowerInfo').innerText = description;
+            $('#flowerModal').modal('show'); // Показываем модальное окно
+        }
+    
+
+
+        function toggleText(postId, button) {
+    const fullText = document.getElementById(postId);
+
+    if (fullText.style.display === "none" || fullText.style.display === "") {
+        fullText.style.display = "block"; // Показываем текст
+        button.innerText = "Скрыть"; // Меняем текст кнопки на "Скрыть"
+    } else {
+        fullText.style.display = "none"; // Скрываем текст
+        button.innerText = "Читать далее"; // Возвращаем текст кнопки "Читать далее"
+        button.classList.remove('active'); // Убираем активный класс, если он есть
+    }
+}
+
+    </script>
+</body>
+</html>

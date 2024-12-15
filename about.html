@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOOM BOOM</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="text-center">
+        <a href="index.html">
+            <h1>BLOOM BOOM</h1>
+            <h2 style="letter-spacing: 3px; color: #FFFFFF;">flower designer</h2>
+            <img src="logo.svg" alt="Логотип" class="img-fluid"> 
+        </a>
+    </header>
+
+    <nav class="navbar navbar-expand navbar-light">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Главная <span class="sr-only">(текущая)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="constructor.html">Конструктор букета</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="flower.html">Информация о цветах</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">О нас</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="container text-center mt-4">
+        <!-- О нашем магазине -->
+        <section class="text-left">
+            <h2 class="section-header mt-5 gallery-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; text-align: left; margin-top: 40px;">Немного о нас:</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <p style="text-align: justify;">Мы предлагаем широкий ассортимент свежих цветов и оригинальных букетов для любого случая. Наша команда профессионалов поможет вам создать идеальный подарок.</p>
+                    <p style="text-align: justify;">Одной из наших уникальных особенностей является интерактивный информационный конструктор букета, который позволяет вам легко создавать собственные композиции, выбирая из множества вариантов цветов и упаковки.</p>
+                    <p style="text-align: justify;">Мы понимаем, что каждый букет — это выражение чувств, и стремимся предложить индивидуальный подход к каждому клиенту.</p>
+                    <p style="text-align: justify;">Мы рады видеть вас на нашем сайте и готовы помочь выбрать идеальный букет для любого повода!</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/о нас.webp" alt="Цветы" class="img-fluid rounded shop-image" style="margin-top:  -25px; margin-bottom: 40px !important;">
+                </div>
+            </div>
+        </section>
+    
+        <!-- Почему выбирают именно нас -->
+        <section>
+            <h2 class="section-header mt-5 gallery-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721;">Почему выбирают именно нас:</h2>
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="unusual-card flex-fill">
+                        <img src="images/визуализация.jpg" class="card-img" alt="Визуализация букета">
+                        <h5 class="unusual-card-title" style="font-weight: bold;">Визуализация букета</h5>
+                        <p class="unusual-card-text">Инструменты визуализации помогут вам увидеть, как будет выглядеть ваш букет до его создания.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="unusual-card flex-fill">
+                        <img src="images/функционал.jpg" class="card-img" alt="Функционал конструктора">
+                        <h5 class="unusual-card-title" style="font-weight: bold;">Функционал конструктора</h5>
+                        <p class="unusual-card-text">Простой и удобный конструктор позволяет легко добавлять и удалять цветы, создавая идеальный букет.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="unusual-card flex-fill">
+                        <img src="images/удобство.jpg" class="card-img" alt="Удобство интерфейса">
+                        <h5 class="unusual-card-title" style="font-weight: bold;">Удобство интерфейса</h5>
+                        <p class="unusual-card-text">Удобный и современный интерфейс обеспечивает приятное взаимодействие с пользователем.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Призыв к заполнению формы обратной связи -->
+        <section>
+            <div class="call-to-action">
+                Мы всегда рады вашему мнению! Пожалуйста, заполните форму ниже, чтобы поделиться своими впечатлениями или задать вопросы.
+            </div>
+            <div class="feedback-container">
+                <div class="feedback-form">
+                    <h2 class="section-header mt-5 gallery-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; margin-top: 15px !important;">Форма обратной связи</h2>
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Введите ваше сообщение" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                        <button type="button" id="saveFeedbackBtn" class="btn btn-secondary">Сохранить данные</button>
+                    </form>
+                </div>
+                <div class="feedback-image">
+                    <img src="images/создание.webp" alt="Изображение обратной связи" class="img-fluid">
+                </div>
+            </div>
+            <!-- Новый текст и кнопка "Создать букет" -->
+            <div class="create-bouquet mt-4">
+                <h2 class="section-header mt-5 gallery-header" style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721; margin-top: 70px !important;">Создайте свой идеальный букет!</h2>
+                <p>Используйте наш конструктор, чтобы создать уникальный букет, который идеально подойдет для любого случая.</p>
+                <a href="constructor.html" id="createBouquetBtn" class="btn btn-primary btn-lg create-button" style="font-family: 'Inter', sans-serif; font-weight: 700;">Создать букет</a>
+                <div class="mt-4"></div> <!-- Отступ после кнопки -->
+            </div>
+        </section>
+    </main>
+    
+    <footer class="text-center py-3" style="background-color: #023721; color: #FFFFFF;">
+        <div class="footer-content">
+            <h5>Связаться с нами:</h5>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i> Email: bloomboom@mail.ru
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i> Телефон: +7 (123) 456-78-90
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Адрес: ул. Цветочная, 1, г. Владимир
+            </div>
+        </div>
+        <p>&copy; 2024 BLOOM BOOM. Все права защищены.</p>
+        <a href="index.html">
+            <img src="logo.svg" alt="Маленький логотип" class="footer-logo">
+        </a>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('saveFeedbackBtn').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Проверка, заполнены ли поля
+            if (!name || !email || !message) {
+                alert('Пожалуйста, заполните все поля перед сохранением.');
+                return;
+            }
+
+            const feedbackData = `Имя: ${name}\nEmail: ${email}\nСообщение: ${message}\n\n`;
+
+            const blob = new Blob([feedbackData], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'feedback.txt'; // Имя файла, который будет загружен
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url); // Освобождаем память
+        });
+
+        document.getElementById('createBouquetBtn').addEventListener('click', function() {
+            this.classList.toggle('btn-active'); // Переключаем класс при нажатии
+            this.blur(); // Убираем фокус с кнопки
+        });
+    </script>
+</body>
+</html>

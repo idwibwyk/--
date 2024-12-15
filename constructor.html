@@ -3,474 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom Boom</title>
+    <title>BLOOM BOOM</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style2.css">
-    <style>
-        .product-card {
-            margin-top: 20px; /* Отступ сверху для карточки товара */
-            text-align: center; /* Центрируем текст внутри карточки */
-            
-        }
-        .price, .total {
-            margin-top: 10px; /* Отступ сверху для цены и суммы */
-        }
-        .cart {
-            position: sticky; /* Фиксированное положение при прокрутке */
-            top: 20px; /* Отступ от верхнего края */
-            background-color: white; /* Фон корзины */
-            border: 1px solid #ccc; /* Граница корзины */
-            padding: 15px; /* Внутренние отступы */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для корзины */
-            height: fit-content; /* Высота по содержимому */
-            margin-top: 200px; /* Добавляем отступ сверху */
-        }
-    </style>
 </head>
 <body>
-<header>
-    <h1>BLOOM BOOM</h1>
-    <h2>flower designer</h2>
-    <div class="logo">
-        <span><img src="logo.svg" alt="Логотип"></span>
-    </div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:-80px !important;" style="margin-left:-40px !important;"> Информация о цветах </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">База данных цветов</a>
-                        <a class="dropdown-item" href="#">Советы по выбору</a>
-                        <a class="dropdown-item" href="#">Блог</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Конструктор букета</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> О нас </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Наша команда</a>
-                        <a class="dropdown-item" href="#">Контакты</a>
-                        <a class="dropdown-item" href="#">Отзывы</a>
-                        <a class="dropdown-item" href="#">Форма обратной связи</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
+    <header class="text-center">
+        <a href="index.html">
+            <h1>BLOOM BOOM</h1>
+            <h2 style="letter-spacing: 3px; color: #FFFFFF;">flower designer</h2>
+            <img src="logo.svg" alt="Логотип" class="img-fluid"> 
+        </a>
+    </header>
+
+    <nav class="navbar navbar-expand navbar-light">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Главная <span class="sr-only">(текущая)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="constructor.html">Конструктор букета</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="flower.html">Информация о цветах</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">О нас</a>
+            </li>
+        </ul>
     </nav>
-</header>
-<main>
-    <div class="container">
-        <div class="content-block">
-            <div class="row">
-                <div class="col-md-8">
-                    <h4 class="text-center">Выберите цветы:</h4>
-                    <div class="row">
-                        <div class="col-md-6" >
-                            <div class="card product-card" style="margin-left:130px !important;">
-                                <div class="card-image">
-                                    <img src="images/хризантема.jpg" alt="Хризантема">
-                                    <span class="card-title">Хризантема</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="price">Цена: 150₽</p>
-                                    <div class="quantity-control">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Хризантема', -1)">-</button>
-                                        <input type="number" id="quantity-Хризантема" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Хризантема', 1)">+</button>
-                                    </div>
-                                    <p id="total-Хризантема">Сумма: 0₽</p>
-                                    <button class="btn btn-primary" onclick="addToCart('Хризантема')">Добавить в корзину</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card product-card" style="margin-left: 260px !important;">
-                                <div class="card-image">
-                                    <img src="images/роза.jpg" alt="Роза">
-                                    <span class="card-title">Роза</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="price">Цена: 200₽</p>
-                                    <div class="quantity-control">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Роза', -1)">-</button>
-                                        <input type="number" id="quantity-Роза" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Роза', 1)">+</button>
-                                    </div>
-                                    <p id="total-Роза">Cумма: 0₽</p>
-                                    <button class="btn btn-primary" onclick="addToCart('Роза')">Добавить в корзину</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card product-card" style="margin-left:130px !important;">
-                                <div class="card-image">
-                                    <img src="images/белая эустома(лизиантус).jpg" alt="Эустома">
-                                    <span class="card-title">Эустома</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="price">Цена: 250₽</p>
-                                    <div class="quantity-control">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Эустома', -1)">-</button>
-                                        <input type="number" id="quantity-Эустома" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Эустома', 1)">+</button>
-                                    </div>
-                                    <p id="total-Эустома">Cумма: 0₽</p>
-                                    <button class="btn btn-primary" onclick="addToCart('Эустома')">Добавить в корзину</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card product-card" style="margin-left: 260px !important;">
-                                <div class="card-image">
-                                    <img src="images/хамелациум.jpg" alt="Хамелациум">
-                                    <span class="card-title">Хамелациум</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="price">Цена: 300₽</p>
-                                    <div class="quantity-control">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Хамелациум', -1)">-</button>
-                                        <input type="number" id="quantity-Хамелациум" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                        <button class="btn btn-secondary" onclick="changeQuantity('Хамелациум', 1)">+</button>
-                                    </div>
-                                    <p id="total-Хамелациум">Cумма: 0₽</p>
-                                    <button class="btn btn-primary" onclick="addToCart('Хамелациум')">Добавить в корзину</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+    <main class="container text-center mt-4">
+        <h2 style="font-family: 'Inter', sans-serif; font-weight: 700; color: #023721;">Создайте свой идеальный букет!</h2>
+        <p>Перетаскивайте цветы в вазу, чтобы создать уникальный букет.</p>
+    
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="vase-container">
+                    <img src="images/ваза.png" alt="Ваза" style="width: 60%; height: auto; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 1;"> <!-- Уменьшен размер вазы -->
+                    <div id="flower-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 2;"></div>
                 </div>
-
-
-
-
-
-                
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4 class="text-center" style="margin-top: 50px !important;">Выберите зелень:</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left:130px !important;">
-                                    <div class="card-image">
-                                        <img src="images/папоротник.jpg" alt="Папоротник">
-                                        <span class="card-title">Папоротник</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 150₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Папоротник', -1)">-</button>
-                                            <input type="number" id="quantity-Папоротник" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Папоротник', 1)">+</button>
-                                        </div>
-                                        <p id="total-Папоротник" >Cумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Папоротник')">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left: 260px !important;">
-                                    <div class="card-image">
-                                        <img src="images/эвкалипт.jpg" alt="Эвкалипт">
-                                        <span class="card-title">Эвкалипт</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 170₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Эвкалипт', -1)">-</button>
-                                            <input type="number" id="quantity-Эвкалипт" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Эвкалипт', 1)">+</button>
-                                        </div>
-                                        <p id="total-Эвкалипт">Cумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Эвкалипт')">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left: 130px !important;">
-                                    <div class="card-image"  >
-                                        <img src="images/гипсофила.jpg" style="max-height: 330px !important;" alt="Гипсофила">
-                                        <span class="card-title">Гипсофила</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 200₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Гипсофила', -1)">-</button>
-                                            <input type="number" id="quantity-Гипсофила" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Гипсофила', 1)">+</button>
-                                        </div>
-                                        <p id="total-Гипсофила">Cумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Гипсофила')">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left: 260px !important;">
-                                    <div class="card-image">
-                                        <img src="images/писташ.jpg" style="height: 330px !important;" alt="Писташ">
-                                        <span class="card-title">Писташ</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 180₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Писташ', -1)">-</button>
-                                            <input type="number" id="quantity-Писташ" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Писташ', 1)">+</button>
-                                        </div>
-                                        <p id="total-Писташ">Cумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Писташ')">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4 class="text-center" style="margin-left: 70px !important;" style="margin-bottom: -60px !important;">Выберите оформление:</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left:130px !important;">
-                                    <div class="card-image">
-                                        <img src="images/бумага.jpg" alt="Бумага">
-                                        <span class="card-title">Упаковочная бумага</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 200₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Упаковочная бумага', -1)">-</button>
-                                            <input type="number" id="quantity-Упаковочная бумага" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Упаковочная бумага', 1)">+</button>
-                                        </div>
-                                        <p id="total-Упаковочная бумага">Cумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Упаковочная бумага')">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left: 260px !important;">
-                                    <div class="card-image">
-                                        <img src="images/крафтбумага.jpg" alt="Крафтовая бумага">
-                                        <span class="card-title">Крафтовая бумага</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 150₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Крафтовая бумага', -1)">-</button>
-                                            <input type="number" id="quantity-Крафтовая бумага" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Крафтовая бумага', 1)">+</button>
-                                        </div>
-                                        <p id="total-Крафтовая бумага">Cумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Крафтовая бумага', 150)">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-    <div class="card product-card" style="margin-left:130px !important;">
-        <div class="card-image">
-            <img src="images/открытка.jpg" alt="Открытка">
-            <span class="card-title">Открытка</span>
-        </div>
-        <div class="card-content">
-            <p class="price">Цена: 60₽</p>
-            <div class="quantity-control">
-                <button class="btn btn-secondary" onclick="changeQuantity('Открытка', -1)">-</button>
-                <input type="number" id="quantity-Открытка" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                <button class="btn btn-secondary" onclick="changeQuantity('Открытка', 1)">+</button>
             </div>
-            <p id="total-Открытка">Cумма: 0₽</p>
-            <button class="btn btn-primary" onclick="addToCart('Открытка')">Добавить в корзину</button>
         </div>
-    </div>
-</div>
+    
+        <h3 style="font-weight: 700; font-family: 'Inter', sans-serif;">Выберите цветы:</h3>
+        <div class="row justify-content-center" style="margin-top: 40px !important;">
+            <div class="col-md-2 flower" draggable="true" ondragstart="drag(event)" data-flower-type="rose">
+                <p>Роза</p>
+                <img src="images/роза.png" alt="Роза" style="width: 100%; height: auto;">
+            </div>
+            <div class="col-md-2 flower" draggable="true" ondragstart="drag(event)" data-flower-type="chrysanthemum">
+                <p>Хризантема</p>
+                <img src="images/хризантема.png" alt="Хризантема" style="width: 100%; height: auto;">
+            </div>
+            <div class="col-md-2 flower" draggable="true" ondragstart="drag(event)" data-flower-type="tulip">
+                <p>Тюльпан</p>
+                <img src="images/тюльпан.png" alt="Тюльпан" style="width: 100%; height: auto;">
+            </div>
+            <div class="col-md-2 flower" draggable="true" ondragstart="drag(event)" data-flower-type="peony">
+                <p>Пион</p>
+                <img src="images/пион.png" alt="Пион" style="width: 100%; height: auto;">
+            </div>
+            <div class="col-md-2 flower" draggable="true" ondragstart="drag(event)" data-flower-type="lily">
+                <p>Лилия</p>
+                <img src="images/лилия.png" alt="Лилия" style="width: 100%; height: auto;">
+            </div>
+        </div>
+        
+        <button class="btn btn-success btn-create" data-toggle="modal" data-target="#bouquetModal" style="margin-bottom: 20px !important;">Создать свой букет</button>
+        <button class="btn btn-danger btn-remove" style="margin-left: 10px;">Удалить последний цветок</button>
 
-                            <div class="col-md-6">
-                                <div class="card product-card" style="margin-left: 260px !important;">
-                                    <div class="card-image">
-                                        <img src="images/ленты.jpg" alt="Лента">
-                                        <span class="card-title">Лента</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p class="price">Цена: 50₽</p>
-                                        <div class="quantity-control">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Лента', -1)">-</button>
-                                            <input type="number" id="quantity-Лента" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                                            <button class="btn btn-secondary" onclick="changeQuantity('Лента', 1)">+</button>
-                                        </div>
-                                        <p id="total-Лента">Общая сумма: 0₽</p>
-                                        <button class="btn btn-primary" onclick="addToCart('Лента')">Добавить в корзину</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                
-
-
-
-
-
-
-
-                <!-- Корзина внутри основного блока -->
-                <div class="col-md-4">
-                    <div class="cart">
-                        <h4>Корзина</h4>
-                        <div id="cartItems"></div>
-                        <div id="cartTotal" class="total-price">Итого: 0₽</div>
-                        <button class="btn btn-success" style="background-color: #023721; color: rgb(232, 232, 232);" onclick="placeOrder()">Оформить заказ</button>
-
+        <!-- Модальное окно -->
+        <div class="modal fade" id="bouquetModal" tabindex="-1" role="dialog" aria-labelledby="bouquetModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bouquetModalLabel">Ваш букет</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="flower-counts">
+                        <!-- Здесь будет отображаться поздравительный текст и количество каждого цветка -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-
-<footer>
-    <div class="container">
-        <div class="logo2">
-            <span><img src="logo.svg" alt="Логотип"></span>
-        </div>
-        <p class="footers">&copy; 2024 Bloom Boom</p>
-    </div>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script>
-let cart = {};
-
-function changeQuantity(productName, change) {
-    const quantityInput = document.getElementById(`quantity-${productName}`);
-    const totalDisplay = document.getElementById(`total-${productName}`);
-    let currentQuantity = parseInt(quantityInput.value) || 0;
-
-    currentQuantity += change;
-    if (currentQuantity < 0) currentQuantity = 0;
-
-    quantityInput.value = currentQuantity;
-
-    // Обновление общей суммы для товара
-    const price = getPrice(productName);
-    totalDisplay.innerText = `Общая сумма: ${currentQuantity * price}₽`;
-}
-
-function getPrice(productName) {
-    switch (productName) {
-        case 'Хризантема': return 150;
-        case 'Роза': return 200;
-        case 'Эустома': return 250;
-        case 'Хамелациум': return 300;
-        case 'Папоротник': return 150;
-        case 'Эвкалипт': return 170;
-        case 'Гипсофила': return 200;
-        case 'Писташ': return 180;
-        case 'Упаковочная бумага': return 200;
-        case 'Крафтовая бумага': return 150;
-        case 'Открытка': return 60;
-        case 'Лента': return 50;
-        default: return 250; // цена по умолчанию
-    }
-}
-
-function addToCart(productName) {
-    const quantityInput = document.getElementById(`quantity-${productName}`);
-    const quantity = parseInt(quantityInput.value) || 0;
-
-    if (quantity === 0) {
-        alert('Выберите количество товара для добавления в корзину.');
-        return;
-    }
-
-    const price = getPrice(productName);
-    if (cart[productName]) {
-        cart[productName].quantity += quantity;
-        cart[productName].total += price * quantity;
-    } else {
-        cart[productName] = {
-            quantity: quantity,
-            price: price,
-            total: price * quantity
+    </main>
+    
+    <script>
+        const flowerCounts = {
+            rose: 0,
+            chrysanthemum: 0,
+            tulip: 0,
+            peony: 0,
+            lily: 0
         };
+    
+        const flowerContainer = document.getElementById('flower-container');
+        const addedFlowers = []; // Массив для хранения добавленных цветков
+    
+        function drag(event) {
+            const flowerType = event.target.parentElement.getAttribute("data-flower-type");
+            event.dataTransfer.setData("text/plain", event.target.src);
+            event.dataTransfer.setData("flowerType", flowerType);
+        }
+        
+        flowerContainer.addEventListener('dragover', function(event) {
+            event.preventDefault(); // Позволяет сбрасывать элемент
+        });
+        
+        flowerContainer.addEventListener('drop', function(event) {
+            event.preventDefault();
+            const flowerSrc = event.dataTransfer.getData("text/plain");
+            const flowerType = event.dataTransfer.getData("flowerType");
+    
+            // Получаем координаты для размещения цветка
+            const dropX = event.offsetX;
+            const dropY = event.offsetY;
+    
+            const flowerImg = document.createElement("img");
+            flowerImg.src = flowerSrc;
+            flowerImg.style.position = "absolute";
+            flowerImg.style.width = "80px"; // Установите нужный размер
+            flowerImg.style.height = "auto"; // Автоматическая высота для сохранения пропорций
+    
+            // Проверяем, находится ли цветок в пределах допустимых координат
+            if (dropX >= 150 && dropX <= 313 && dropY >= 0 && dropY <= 150) {
+                flowerImg.style.left = dropX + "px"; // Позиция по X
+                flowerImg.style.top = dropY + "px"; // Позиция по Y
+            } else {
+                // Генерируем случайные координаты в разрешенной области
+                let randomX, randomY;
+                do {
+                    randomX = Math.floor(Math.random() * (313 - 150)) + 150;
+                    randomY = Math.floor(Math.random() * (150 - 0)) + 0;
+                    flowerImg.style.left = randomX + "px"; // Позиция по X
+                    flowerImg.style.top = randomY + "px"; // Позиция по Y
+                } while (isOverlapping(flowerImg, this.getElementsByTagName("img")));
+            }
+    
+            // Добавляем цветок в вазу
+            this.appendChild(flowerImg);
+            flowerCounts[flowerType]++;
+            addedFlowers.push({ img: flowerImg, type: flowerType }); // Сохраняем добавленный цветок с типом
+        });
+    
+        function isOverlapping(newFlower, existingFlowers) {
+            const newRect = newFlower.getBoundingClientRect();
+    
+            for (let flower of existingFlowers) {
+                const existingRect = flower.getBoundingClientRect();
+                if (
+                    newRect.x < existingRect.x + existingRect.width &&
+                    newRect.x + newRect.width > existingRect.x &&
+                    newRect.y < existingRect.y + existingRect.height &&
+                    newRect.y + newRect.height > existingRect.y
+                ) {
+                    return true; // Пересечение найдено
+                }
+            }
+            return false; // Пересечения нет
+        }
+    
+    // Обработчик события для кнопки "Создать букет"
+document.querySelector('.btn-create').addEventListener('click', function() {
+    console.log("Кнопка 'Создать букет' нажата"); // Отладочный вывод
+    console.log("Длина addedFlowers:", addedFlowers.length); // Проверка длины массива
+
+    // Проверяем, есть ли добавленные цветы
+    if (addedFlowers.length === 0) {
+        // Если цветы не добавлены, открываем модальное окно с уведомлением
+        const flowerCountDiv = document.getElementById('flower-counts');
+        flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
+
+        // Добавляем сообщение о том, что цветы не добавлены
+        const noFlowersMessage = document.createElement('p');
+        noFlowersMessage.textContent = "Нет добавленных цветов!";
+        noFlowersMessage.style.fontWeight = "bold"; // Жирный текст
+        noFlowersMessage.style.color = "red"; // Красный цвет для выделения
+        flowerCountDiv.appendChild(noFlowersMessage);
+
+        // Добавляем инструкции по добавлению цветов
+        const instructionsMessage = document.createElement('p');
+        instructionsMessage.textContent = "Пожалуйста, перетащите цветы в вазу, чтобы создать букет.";
+        flowerCountDiv.appendChild(instructionsMessage);
+
+        // Открываем модальное окно
+        $('#bouquetModal').modal('show');
+        return; // Прекращаем выполнение функции
     }
 
-    quantityInput.value = 0; // сбросить количество после добавления
-    renderCart();
-}
+    // Если цветы добавлены, открываем модальное окно
+    const flowerCountDiv = document.getElementById('flower-counts');
+    flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
 
-function renderCart() {
-    const cartItemsDiv = document.getElementById('cartItems');
-    cartItemsDiv.innerHTML = '';
-    let total = 0;
+    // Добавляем поздравительный текст
+    const congratulatoryMessage = document.createElement('p');
+    congratulatoryMessage.textContent = "Поздравляем, Вы создали свой собственный индивидуальный букет!";
+    congratulatoryMessage.style.fontWeight = "bold"; // Жирный текст
+    congratulatoryMessage.style.fontSize = "1.2em"; // Увеличенный размер шрифта
+    flowerCountDiv.appendChild(congratulatoryMessage);
 
-    for (const product in cart) {
-        const item = cart[product];
-        cartItemsDiv.innerHTML += `
-            <div class="cart-item" style="display: flex; align-items: center; margin-right: 20px;">
-                <span>${product} (x${item.quantity})</span>
-                <div style="margin-left: 10px;">
-                    <button class="btn btn-secondary btn-sm" onclick="updateCart('${product}', -1)">-</button>
-                    <span style="margin: 0 10px;">${item.quantity}</span>
-                    <button class="btn btn-secondary btn-sm" onclick="updateCart('${product}', 1)">+</button>
-                </div>
-                <span style="margin-left: 10px;">${item.total}₽</span>
-                <button class="btn btn-danger btn-sm" style="margin-left: 10px;" onclick="removeFromCart('${product}')">✖</button>
+    // Добавляем текст о содержимом букета
+    const bouquetMessage = document.createElement('p');
+    bouquetMessage.textContent = "Ваш букет состоит из:";
+    bouquetMessage.style.fontWeight = "bold"; // Жирный текст
+    flowerCountDiv.appendChild(bouquetMessage);
+
+    // Генерируем список цветов и их количества
+    for (const [flowerType, count] of Object.entries(flowerCounts)) {
+        if (count > 0) {
+            const flowerItem = document.createElement('p');
+            const flowerName = getFlowerNameInRussian(flowerType); // Получаем название цветка на русском
+            flowerItem.textContent = `${flowerName}: ${count}`;
+            flowerCountDiv.appendChild(flowerItem);
+        }
+    }
+
+    // Открываем модальное окно
+    $('#bouquetModal').modal('show');
+});
+
+    
+        // Функция для получения названия цветка на русском языке
+        function getFlowerNameInRussian(flowerType) {
+            const flowerNames = {
+                rose: "Роза",
+                chrysanthemum: "Хризантема",
+                tulip: "Тюльпан",
+                peony: "Пион",
+                lily: "Лилия"
+            };
+            return flowerNames[flowerType] || flowerType; // Возвращаем название или сам тип, если не найдено
+        }
+    
+        // Обработчик события для кнопки "Удалить последний цветок"
+        document.querySelector('.btn-remove').addEventListener('click', function() {
+            if (addedFlowers.length > 0) {
+                const lastFlower = addedFlowers.pop(); // Удаляем последний цветок из массива
+                flowerContainer.removeChild(lastFlower.img); // Удаляем его из контейнера
+    
+                // Уменьшаем счетчик для соответствующего цветка
+                flowerCounts[lastFlower.type] = Math.max(0, flowerCounts[lastFlower.type] - 1); // Уменьшаем счетчик
+    
+                // Обновляем модальное окно
+                updateModal();
+            } else {
+                alert("Нет добавленных цветков для удаления!"); // Предупреждение, если нет цветков
+            }
+        });
+    
+        // Функция для обновления модального окна
+        function updateModal() {
+            const flowerCountDiv = document.getElementById('flower-counts');
+            flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
+    
+            // Добавляем поздравительный текст
+            const congratulatoryMessage = document.createElement('p');
+            congratulatoryMessage.textContent = "Поздравляем, Вы создали свой собственный индивидуальный букет!";
+            congratulatoryMessage.style.fontWeight = "bold"; // Жирный текст
+            congratulatoryMessage.style.fontSize = "1.2em"; // Увеличенный размер шрифта
+            flowerCountDiv.appendChild(congratulatoryMessage);
+    
+            // Добавляем текст о содержимом букета
+            const bouquetMessage = document.createElement('p');
+            bouquetMessage.textContent = "Ваш букет состоит из:";
+            bouquetMessage.style.fontWeight = "bold"; // Жирный текст
+            flowerCountDiv.appendChild(bouquetMessage);
+    
+            // Генерируем список цветов и их количества
+            for (const [flowerType, count] of Object.entries(flowerCounts)) {
+                if (count > 0) {
+                    const flowerItem = document.createElement('p');
+                    const flowerName = getFlowerNameInRussian(flowerType); // Получаем название цветка на русском
+                    flowerItem.textContent = `${flowerName}: ${count}`;
+                    flowerCountDiv.appendChild(flowerItem);
+                }
+            }
+        }
+    </script>
+    
+
+    <footer class="text-center py-3" style="background-color: #023721; color: #FFFFFF;">
+        <div class="footer-content">
+            <h5>Связаться с нами:</h5>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i> Email: bloomboom@mail.ru
             </div>
-        `;
-        total += item.total; // Суммируем общую стоимость
-    }
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i> Телефон: +7 (123) 456-78-90
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i> Адрес: ул. Цветочная, 1, г. Владимир
+            </div>
+        </div>
+        <p>&copy; 2024 BLOOM BOOM. Все права защищены.</p>
+        <a href="index.html">
+            <img src="logo.svg" alt="Маленький логотип" class="footer-logo">
+        </a>
+    </footer>
 
-    document.getElementById('cartTotal').innerText = 'Итого: ' + total + '₽';
-}
-
-function updateCart(productName, change) {
-    const price = getPrice(productName);
-    const currentQuantity = cart[productName].quantity;
-
-    let newQuantity = currentQuantity + change;
-    if (newQuantity < 0) newQuantity = 0;
-
-    if (newQuantity === 0) {
-        delete cart[productName]; // Удаляем товар из корзины, если количество 0
-    } else {
-        cart[productName].quantity = newQuantity;
-        cart[productName].total = price * newQuantity; // Обновляем общую сумму
-    }
-
-    renderCart();
-}
-
-function removeFromCart(productName) {
-    delete cart[productName]; // Удаляем товар из корзины
-    renderCart();
-}
-
-function placeOrder() {
-    if (Object.keys(cart).length === 0) {
-        alert('Корзина пуста. Добавьте товары для оформления заказа.');
-        return;
-    }
-
-    alert('Ваш заказ успешно оформлен!');
-    cart = {}; // Сброс корзины
-    renderCart();
-}
-
-
-</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
