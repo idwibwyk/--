@@ -8,8 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-     <!-- Код Яндекс.Метрики -->
-     <script type="text/javascript">
+    <style>
+        /* Стили для модального окна снизу */
+        #cookieModal .modal-dialog {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        #cookieModal .modal-content {
+            border-radius: 0;
+            border-bottom: none;
+        }
+
+        #cookieModal .modal-header {
+            background-color: #023721;
+            color: #fff;
+            border-bottom: none;
+        }
+
+        #cookieModal .modal-body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        #cookieModal .modal-footer {
+            background-color: #f8f9fa;
+            border-top: none;
+            padding: 10px 20px;
+        }
+    </style>
+    <!-- Код Яндекс.Метрики -->
+    <script type="text/javascript">
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -146,6 +179,28 @@
         </a>
     </footer>
 
+    <!-- Модальное окно для соглашения -->
+    <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cookieModalLabel">Соглашение об использовании аналитики</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Мы используем файлы cookie и другие технологии для сбора данных о вашем посещении сайта. Это помогает нам улучшать наш сервис и предоставлять вам персонализированный контент. Продолжая использовать наш сайт, вы соглашаетесь с этим.</p>
+                    <p>Вы можете узнать больше в нашей <a href="privacy-policy.html" target="_blank">Политике конфиденциальности</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Принять</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отклонить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -153,6 +208,28 @@
         document.getElementById('createBouquetBtn').addEventListener('click', function() {
             this.classList.toggle('btn-active'); // Переключаем класс при нажатии
             this.blur(); // Убираем фокус с кнопки
+        });
+
+        $(document).ready(function() {
+            // Проверяем, было ли уже показано соглашение
+            if (!localStorage.getItem('cookieAgreementShown')) {
+                // Показываем модальное окно
+                $('#cookieModal').modal('show');
+                // Сохраняем информацию о том, что соглашение было показано
+                localStorage.setItem('cookieAgreementShown', true);
+            }
+
+            // Обработка нажатия на кнопку "Принять"
+            $('#cookieModal .btn-primary').on('click', function() {
+                // Здесь можно добавить код для сохранения согласия пользователя
+                console.log('Пользователь принял соглашение');
+            });
+
+            // Обработка нажатия на кнопку "Отклонить"
+            $('#cookieModal .btn-secondary').on('click', function() {
+                // Здесь можно добавить код для отклонения согласия
+                console.log('Пользователь отклонил соглашение');
+            });
         });
     </script>
 </body>
