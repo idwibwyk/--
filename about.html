@@ -190,6 +190,20 @@
             this.classList.toggle('btn-active'); // Переключаем класс при нажатии
             this.blur(); // Убираем фокус с кнопки
         });
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Остановить стандартную отправку формы
+
+        // Отправка события в Яндекс.Метрику
+        ym(100339739, 'reachGoal', 'formSubmit');
+
+        // Здесь можно добавить код для отправки данных формы на сервер
+        // Например, с помощью fetch или XMLHttpRequest
+
+        alert('Спасибо за ваше сообщение!'); // Сообщение пользователю
+        this.reset(); // Очистить форму
+    });
+
     </script>
 </body>
 </html>
