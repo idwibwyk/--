@@ -321,6 +321,67 @@
             document.body.removeChild(a); // Удаляем временную ссылку
             URL.revokeObjectURL(url); // Освобождаем память
         });
+
+        document.querySelector('.btn-create').addEventListener('click', function() {
+    console.log("Кнопка 'Создать букет' нажата"); // Отладочный вывод
+    console.log("Длина addedFlowers:", addedFlowers.length); // Проверка длины массива
+
+    // Проверяем, есть ли добавленные цветы
+    if (addedFlowers.length === 0) {
+        // Если цветы не добавлены, открываем модальное окно с уведомлением
+        const flowerCountDiv = document.getElementById('flower-counts');
+        flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
+
+        // Добавляем сообщение о том, что цветы не добавлены
+        const noFlowersMessage = document.createElement('p');
+        noFlowersMessage.textContent = "Нет добавленных цветов!";
+        noFlowersMessage.style.fontWeight = "bold"; // Жирный текст
+        noFlowersMessage.style.color = "red"; // Красный цвет для выделения
+        flowerCountDiv.appendChild(noFlowersMessage);
+
+        // Добавляем инструкции по добавлению цветов
+        const instructionsMessage = document.createElement('p');
+        instructionsMessage.textContent = "Пожалуйста, перетащите цветы в вазу, чтобы создать букет.";
+        flowerCountDiv.appendChild(instructionsMessage);
+
+        // Открываем модальное окно
+        $('#bouquetModal').modal('show');
+        return; // Прекращаем выполнение функции
+    }
+
+    // Если цветы добавлены, отправляем событие в Яндекс.Метрику
+    ym(100339739, 'reachGoal', 'CREATE_BOUQUET'); // Отправка события
+
+    // Открываем модальное окно
+    const flowerCountDiv = document.getElementById('flower-counts');
+    flowerCountDiv.innerHTML = ''; // Очищаем предыдущее содержимое
+
+    // Добавляем поздравительный текст
+    const congratulatoryMessage = document.createElement('p');
+    congratulatoryMessage.textContent = "Поздравляем, Вы создали свой собственный индивидуальный букет!";
+    congratulatoryMessage.style.fontWeight = "bold"; // Жирный текст
+    congratulatoryMessage.style.fontSize = "1.2em"; // Увеличенный размер шрифта
+    flowerCountDiv.appendChild(congratulatoryMessage);
+
+    // Добавляем текст о содержимом букета
+    const bouquetMessage = document.createElement('p');
+    bouquetMessage.textContent = "Ваш букет состоит из:";
+    bouquetMessage.style.fontWeight = "bold"; // Жирный текст
+    flowerCountDiv.appendChild(bouquetMessage);
+
+    // Генерируем список цветов и их количества
+    for (const [flowerType, count] of Object.entries(flowerCounts)) {
+        if (count > 0) {
+            const flowerItem = document.createElement('p');
+            const flowerName = getFlowerNameInRussian(flowerType); // Получаем название цветка на русском
+            flowerItem.textContent = `${flowerName}: ${count}`;
+            flowerCountDiv.appendChild(flowerItem);
+        }
+    }
+
+    // Открываем модальное окно
+    $('#bouquetModal').modal('show');
+});
     </script>
     
 
